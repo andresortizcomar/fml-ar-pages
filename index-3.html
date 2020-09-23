@@ -1,0 +1,77 @@
+<!doctype HTML>
+<html>
+<head>
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+	<script src="https://raw.githack.com/jeromeetienne/AR.js/1.7.1/aframe/build/aframe-ar.js"></script>
+	<script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>
+    <style>
+      .arjs-loader {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .arjs-loader div {
+        text-align: center;
+        font-size: 1.25em;
+        color: white;
+      }
+    </style>
+    
+    <!-- rawgithack development URL -->
+<!--    <script src='https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js'></script>-->
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+    <!-- minimal loader shown until image descriptors are loaded -->
+    <div style='position: fixed; top: 10px; width:100%; text-align: center; z-index: 1;'>
+        <h3>Fundación Miguel Lillo (pages v0.3)</h3>
+   </div>
+   <!--
+   <div class="arjs-loader">
+     <div>Cargando AR...</div>
+   </div>
+-->
+     <a-scene
+         vr-mode-ui="enabled: false;"
+         renderer="logarithmicDepthBuffer: true;"
+         embedded arjs='trackingMethod: best; sourceType: webcam; debugUIEnabled: true;'>
+ 
+         <a-assets>
+            <img id="ar1" src="imgs/herrera.png">
+        </a-assets>
+         <!-- use rawgithack to retrieve the correct url for nft marker (see 'trex' below) -->
+         <a-nft
+             type='nft' url='marks/herrera/herrera'
+             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+             <!--<a-entity
+                 gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf'
+                 scale="5 5 5"
+                 position="100 100 0"
+                 >-->
+                 <a-image src="#ar1" height="5" width="5" rotation="-90 0 0"></a-image>             
+         </a-nft>
+         <a-nft
+             type='nft' url='marks/comic/comic'
+             smooth='true' smoothCount='10' smoothTolerance='0.01' smoothThreshold='5'>
+             <!--<a-entity
+                 gltf-model='https://arjs-cors-proxy.herokuapp.com/https://raw.githack.com/AR-js-org/AR.js/master/aframe/examples/image-tracking/nft/trex/scene.gltf'
+                 scale="5 5 5"
+                 position="100 100 0"
+                 >-->
+                 <a-image src="#ar1" height="5" width="5" rotation="-90 0 0"></a-image>             
+         </a-nft>
+         <a-entity camera></a-entity>
+     </a-scene>
+ </body>
+ 
+</html>
+
+
+
